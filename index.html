@@ -15,23 +15,31 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
     <script type="text/babel">
+      // Componente Header
       function Header({ title }) {
         return <h1>{title}</h1>;
       }
 
-      
+      // Componente principal
       function HomePage() {
-        
         const names = [
           'Ronnaldy Cordeiro',
           'Ronnaldy Cordeiro',
           'Ronnaldy Cordeiro'
         ];
 
+        const [likes, setLikes] = React.useState(0);
+
+        function handleClick() {
+          setLikes(likes + 1);
+        }
+
         return (
           <div>
             <Header title="Develop. Preview. Ship." />
+
             <Header title="React" />
+
             <Header title="Novo titulo" />
 
             <ul>
@@ -39,15 +47,19 @@
                 <li key={name}>{name}</li>
               ))}
             </ul>
+
+            <button onClick={handleClick}>
+              Likes ({likes})
+            </button>
           </div>
         );
       }
 
       const domNode = document.getElementById('app');
-  
+
       const root = ReactDOM.createRoot(domNode);
 
       root.render(<HomePage />);
     </script>
   </body>
-</html
+</html>
