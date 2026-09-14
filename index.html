@@ -15,23 +15,39 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
     <script type="text/babel">
-      const domNode = document.getElementById('app');
-
-      function Header() {
-        return <h1>Develop. Preview. Ship.</h1>;
+      function Header({ title }) {
+        return <h1>{title}</h1>;
       }
 
+      
       function HomePage() {
+        
+        const names = [
+          'Ronnaldy Cordeiro',
+          'Ronnaldy Cordeiro',
+          'Ronnaldy Cordeiro'
+        ];
+
         return (
           <div>
-            <Header />
+            <Header title="Develop. Preview. Ship." />
+            <Header title="React" />
+            <Header title="Novo titulo" />
+
+            <ul>
+              {names.map((name) => (
+                <li key={name}>{name}</li>
+              ))}
+            </ul>
           </div>
         );
       }
 
+      const domNode = document.getElementById('app');
+  
       const root = ReactDOM.createRoot(domNode);
 
       root.render(<HomePage />);
     </script>
   </body>
-</html>
+</html
